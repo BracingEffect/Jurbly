@@ -245,24 +245,13 @@ $content_percent: 50;
         .header {
             white-space: nowrap;
 
-            .title, #parsnip-logo {
+            .title {
                 color: #fff;
                 display: inline-block;
                 font-family: 'Luckiest Guy', $font-family-sans-serif;
                 font-variant: small-caps;
 
                 @include text-shadow(0.05em 0.05em 0 rgba(0, 0, 0, 0.3));
-            }
-
-            #parsnip-logo {
-                display: inline-block;
-                margin-right: -0.1em;
-                width: 0.9em;
-                vertical-align: -40%;
-
-                .spacer {
-                    padding-top: 162.319%;
-                }
             }
         }
 
@@ -488,16 +477,12 @@ only screen and (min-resolution:2dppx) {
         margin: 80px auto 0 auto;
         width: #{$badge_container_width}px;
 
-        #parsnip-itunes-link, #parsnip-github-link {
+        #jurbly-itunes-link {
             display: inline-block;
             float: right;
             height: #{$badge_height}px;
 
             #appstore-badge {
-                margin-right: 10px;
-            }
-
-            #appstore-badge, #github-badge {
                 width: #{$badge_width}px;
                 height: #{$badge_height}px;
             }
