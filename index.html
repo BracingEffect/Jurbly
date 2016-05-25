@@ -1,0 +1,167 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="Jurbly iOS Game">
+    <meta name="keywords" content="iOS,iPhone,iPad,App,Apps,Jurbly,Game">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jurbly</title>
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="images/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="images/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="Bracing Effect"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="images\mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="images\mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="images\mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="images\mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="images\mstile-310x310.png" />
+
+    <style type="text/css">
+{% capture reset_css %}{% include css/reset.scss %}{% endcapture %}
+{{ reset_css | scssify }}
+    </style>
+    <style type="text/css">
+{% capture style_css %}{% include css/style.scss %}{% endcapture %}
+{{ style_css | scssify }}
+    </style>
+
+</head>
+<body>
+
+<nav id="top-navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar-content" aria-label="Expand Menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://bracingeffect.com" aria-label="Bracing Effect Homepage">
+                <div id="bracingeffect-logo-light" class="background-image"></div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="top-navbar-content">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/ChaosClock/">Chaos Clock</a></li>
+                <li><a href="/Parsnip/">Parsnip</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#contact-modal">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div
+    id="contact-modal"
+    class="modal fade"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="contact-title">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 id="contact-title" class="modal-title">
+            <span class="glyphicon glyphicon-user"></span> Contact Us
+        </h4>
+      </div>
+      <div class="modal-body">
+          <div class="text-center">
+          <p>
+          <a href="https://github.com/BracingEffect/Parsnip/issues/new">
+              <span class="glyphicon glyphicon-exclamation-sign"></span> Report an issue
+          </a>
+          </p>
+          <p>
+          <a href="mailto:support@bracingeffect.com">
+              <span class="glyphicon glyphicon-envelope"></span> Email us directly
+          </a>
+          </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="jumbotron" class="jumbotron background-image section-image">
+    <div class="container">
+        <div id="iphone-section">
+            <div class="content">
+                <div class="header">
+                    <h1 class="title">Jurbly</h1>
+                </div>
+                <div class="text">
+                    For iPhone, iPad and iPod Touch
+                </div>
+            </div>
+            <div id="iphone" class="background-image">
+                <span class="spacer"></span>
+                <div id="slides" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div id="screenshot01" class="screenshot background-image item active"><span class="spacer"></span></div>
+                    </div>
+                    <ol class="carousel-indicators">
+                        <li data-target="#slides" data-slide-to="0" class="active"></li>
+                    </ol>
+                </div>
+            </div>
+            <div id="badge-container">
+                <a
+                    id="parsnip-itunes-link"
+                    href="https://itunes.apple.com/us/app/jurbly/id991684088?mt=8"
+                    aria-label="Download on the App Store">
+                    <div id="appstore-badge" class="background-image"></div>
+                </a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="footer" class="text-center">
+            <div id="website-copyright">
+                <span class="nowrap">Copyright © 2016 Bracing Effect, LLC</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+{% include js/jquery.min.js %}
+</script>
+<script type="text/javascript">
+{% include js/jquery.event.move.js %}
+</script>
+<script type="text/javascript">
+{% include js/jquery.event.swipe.js %}
+</script>
+<script type="text/javascript">
+{% include js/jquery.easing.js %}
+</script>
+<script type="text/javascript">
+{% include js/bootstrap.min.js %}
+</script>
+<script type="text/javascript">
+{% include js/main.js %}
+</script>
+
+{% include google_analytics.html %}
+
+</body>
+</html>

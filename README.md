@@ -1,2 +1,4 @@
-# Jurbly
-Public resources for Jurbly, the iOS Game
+Jurbly Website
+==============
+
+Source code for the Jurbly iOS game website.
