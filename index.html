@@ -102,6 +102,13 @@
 </div>
 
 <div id="jumbotron" class="jumbotron background-image section-image">
+
+    <div class="clouds">
+        {% for i in (1..10) %}
+            <div class="cloud cloud-{{ i }}"><span class="spacer"></span></div>
+        {% endfor %}
+    </div>
+
     <div class="container">
         <div id="iphone-section">
             <div class="content">
@@ -143,7 +150,6 @@
         </div>
     </div>
 </div>
-
 
 <script type="text/javascript">
 {% include js/jquery.min.js %}
