@@ -101,7 +101,7 @@ $cloud_count: 10;
     .cloud-#{$i} {
         top: $top * 1%;
         left: $left * 1%;
-        opacity: 0.4 + ($variance / 200.0);
+        opacity: 0.3 + ($variance / 200.0);
         @include transform(scale(0.3 + ($variance / 160.0)));
         @include animation(moveclouds #{$time}s linear -#{$delay}s infinite);
     }
@@ -164,6 +164,11 @@ em {
 }
 
 a {
+    color: $link_text;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
     color: $link_text;
     text-decoration: underline;
 }
@@ -304,7 +309,7 @@ a {
 }
 
 .navbar-fixed-top.opaque, .navbar-fixed-top.expanded {
-    background-color: rgba(0, 0, 64, 0.5);
+    background-color: rgba(0, 0, 64, 0.6);
     @include box-shadow(0 0 32px rgba(0, 0, 0, 0.5));
 
     @include transition(all 0.3s ease 0s);
@@ -373,7 +378,7 @@ $content_percent: 50;
 
         .text {
             color: $normal_text;
-            font-size: 1.15em;
+            font-size: 1.5em;
             line-height: normal;
             white-space: normal;
         }
