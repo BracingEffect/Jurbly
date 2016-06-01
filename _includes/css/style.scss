@@ -39,12 +39,12 @@ $body-bg-top: darken($body-bg, 10%);
 
     width: 25%;
 
-    max-width: 200px;
-    max-height: 60px;
+    max-width: 400px;
+    max-height: 120px;
 
     position: absolute;
 
-    @include border-radius(200px);
+    @include border-radius(400px);
 
     .spacer {
         padding-top: 30%;
@@ -56,15 +56,15 @@ $body-bg-top: darken($body-bg, 10%);
     content: '';
     position: absolute;
 
-    @include border-radius(100px);
+    @include border-radius(200px);
 }
 
 .cloud:before {
     width: 50%;
     padding-top: 40%;
 
-    max-width: 100px;
-    max-height: 80px;
+    max-width: 200px;
+    max-height: 160px;
 
     top: -25%;
     left: 5%;
@@ -76,8 +76,8 @@ $body-bg-top: darken($body-bg, 10%);
     width: 60%;
     padding-top: 60%;
 
-    max-width: 120px;
-    max-height: 120px;
+    max-width: 240px;
+    max-height: 240px;
 
     top: -92%;
     left: auto;
@@ -101,7 +101,7 @@ $cloud_count: 10;
     .cloud-#{$i} {
         top: $top * 1%;
         left: $left * 1%;
-        opacity: 0.3 + ($variance / 200.0);
+        opacity: 0.3 + ($variance / 250.0);
         @include transform(scale(0.3 + ($variance / 160.0)));
         @include animation(moveclouds #{$time}s linear -#{$delay}s infinite);
     }
@@ -389,11 +389,11 @@ $content_percent: 50;
         display: block;
         z-index: 101;
 
-        #slides {
+        #iphone-screen {
             position: absolute;
             overflow: hidden;
 
-            background-color: #EF84BE;
+            background-color: #FC69B4;
         }
     }
 }
@@ -471,7 +471,7 @@ $content_percent: 50;
 #iphone{background-image:url(#{$images_path}iphone.png)}
 #appstore-badge{background-image:url(#{$images_path}appstore-badge.png)}
 #bracingeffect-logo{background-image:url(#{$images_path}bracingeffect-logo.png)}
-#screenshot01{background-image:url(#{$images_path}screenshot01.png)}
+#iphone-screen{background-image:url(#{$images_path}screenshot01.png)}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio:2),
@@ -484,7 +484,7 @@ only screen and (min-resolution:2dppx) {
     #iphone{background-image:url(#{$images_path}iphone_2x.png)}
     #appstore-badge{background-image:url(#{$images_path}appstore-badge_2x.png)}
     #bracingeffect-logo{background-image:url(#{$images_path}bracingeffect-logo_2x.png)}
-    #screenshot01{background-image:url(#{$images_path}screenshot01_2x.png)}
+    #iphone-screen{background-image:url(#{$images_path}screenshot01_2x.png)}
 }
 
 /****************************************
@@ -528,7 +528,7 @@ only screen and (min-resolution:2dppx) {
             padding-top: 204.8913%;
         }
 
-        #slides {
+        #iphone-screen {
             width: (320.0 / $iphone_width) * 100%;
             height: (568.0 / $iphone_height) * 100%;
 
@@ -536,7 +536,7 @@ only screen and (min-resolution:2dppx) {
             left: ($iphone_bezel_width / $iphone_width) * 100%;
 
 
-            .screenshot {
+            .demovideo, .screenshot {
                 width: 100%;
                 height: 100%;
             }
@@ -581,14 +581,14 @@ only screen and (min-resolution:2dppx) {
             height: #{$iphone_height}px;
             width: #{$iphone_width}px;
 
-            #slides {
+            #iphone-screen {
                 width: 320px;
                 height: 568px;
 
                 top: #{$iphone_bezel_height}px;
                 left: #{$iphone_bezel_width}px;
 
-                .screenshot {
+                .demovideo, .screenshot {
                     width: 320px;
                     height: 568px;
                 }
