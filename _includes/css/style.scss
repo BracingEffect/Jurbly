@@ -535,6 +535,9 @@ only screen and (min-resolution:2dppx) {
             top: ($iphone_bezel_height / $iphone_height) * 100%;
             left: ($iphone_bezel_width / $iphone_width) * 100%;
 
+            .demovideo {
+                cursor: pointer;
+            }
 
             .demovideo, .screenshot {
                 width: 100%;
