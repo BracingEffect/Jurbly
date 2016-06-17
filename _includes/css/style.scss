@@ -165,12 +165,10 @@ em {
 
 a {
     color: $link_text;
-    text-decoration: none;
 }
 
 a:hover, a:focus {
     color: $link_text;
-    text-decoration: underline;
 }
 
 .nowrap {
@@ -320,7 +318,7 @@ a:hover, a:focus {
  ****************************************/
 
 #footer {
-    padding: 54px 0 36px 0;
+    padding: 54px 0 54px 0;
 
     #website-copyright {
         color: #fff;
@@ -333,8 +331,8 @@ a:hover, a:focus {
  * iPhone section
  ****************************************/
 
-$badge_height: 43;
-$badge_width: 138;
+$badge_height: 40;
+$badge_width: 135;
 $badge_container_height: $badge_height;
 $badge_container_width: $badge_width;
 $iphone_height: 754;
@@ -357,7 +355,7 @@ $content_percent: 50;
 #iphone-section {
     border-top-right-radius: 1px; /* required for iOS zoom bug */
     border-top-left-radius: 1px; /* required for iOS zoom bug */
-    padding-top: 90px;
+    padding-top: 100px;
 
     .content {
         position: relative;
