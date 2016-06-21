@@ -378,6 +378,19 @@ $content_percent: 50;
             font-size: 1.5em;
             line-height: normal;
             white-space: normal;
+
+            .list-container {
+                ul {
+                    display: inline-block;
+                    text-align: left;
+                    margin: 0.5em 0 1.5em 0;
+
+                    li:before {
+                        content: '\2605';
+                        margin-right: 0.375em;
+                    }
+                }
+            }
         }
     }
 
