@@ -379,6 +379,10 @@ $content_percent: 50;
             line-height: normal;
             white-space: normal;
 
+            a, a:hover, a:focus {
+                text-decoration: underline;
+            }
+
             .list-container {
                 ul {
                     display: inline-block;
