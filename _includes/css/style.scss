@@ -338,15 +338,16 @@ $be-logo-width: 179px;
 
     h1 {
         font-family: 'Luckiest Guy', $font-family-sans-serif;
-        font-size: 4.25em;
+        font-size: 5.8em;
+        font-variant: small-caps;
         @include text-shadow(0.05em 0.05em 0 $text-shadow-color);
 
         @media (min-width: $screen-xs-min) {
-            font-size: 5em;
+            font-size: 7em;
         }
 
         @media (min-width: $screen-lg-min) {
-            font-size: 7em;
+            font-size: 8.5em;
         }
 
         margin-top: 0;
