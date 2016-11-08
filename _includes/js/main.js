@@ -1,17 +1,20 @@
-var agent = navigator.userAgent || navigator.vendor || window.opera || '';
-var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(agent);
-var isIOS = /iPhone|iPad|iPod/i.test(agent);
-
-if (isIOS) {
-    {% include js/iosfix.js %}
-}
-
 jQuery(document).ready(function($) {
 
-    var $document = $(document),
-        $window = $(window),
+    var $window = $(window),
         $navbar = $('#top-navbar'),
-        $navbarContent = $('#top-navbar-content');
+        $navbarContent = $('#top-navbar-content'),
+        $navbarToggle = $('#top-navbar-toggle');
+
+    $navbarContent.localScroll({
+        filter:'.smoothScroll',
+        duration: 300,
+        hash: true,
+        onBefore: function() {
+            if ($navbarToggle.is(':visible')) {
+                $navbarContent.collapse('hide');
+            }
+        }
+    });
 
     $navbarContent.on('hide.bs.collapse', function () {
         $navbar.removeClass('expanded');

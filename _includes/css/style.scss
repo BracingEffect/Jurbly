@@ -3,26 +3,33 @@
 @import "bootstrap";
 @import "mixins";
 
-$images_path: "images/";
-$fonts_path: "fonts/";
 
-$body-bg-top: darken($body-bg, 10%);
+$badge_height: 40;
+$badge_width: 135;
 
-/****************************************
- * Web Fonts
- ****************************************/
+$iphone_screen_height: 568;
+$iphone_screen_width: 320;
+$iphone_bezel_height: 93;
+$iphone_bezel_width: 24;
+$iphone_height: $iphone_screen_height + ($iphone_bezel_height * 2); // 754;
+$iphone_width: $iphone_screen_width + ($iphone_bezel_width * 2); // 368;
+
+
+//-------------------------------------------------------------
+// Web Fonts
+//-------------------------------------------------------------
 
 @font-face {
   font-family: 'Luckiest Guy';
   font-style: normal;
   font-weight: 400;
-  src: local('Luckiest Guy'), local('LuckiestGuy'), url(#{$fonts_path}LuckiestGuy.ttf) format('truetype');
+  src: local('Luckiest Guy'), local('LuckiestGuy'), url(#{$icon-font-path}LuckiestGuy.ttf) format('truetype');
 }
 
 
-/****************************************
- * Clouds
- ****************************************/
+//-------------------------------------------------------------
+// Clouds
+//-------------------------------------------------------------
 
 .clouds {
     position: absolute;
@@ -126,333 +133,76 @@ $cloud_count: 10;
 }
 
 
-/****************************************
- * Global styles
- ****************************************/
+//-------------------------------------------------------------
+// Global styles
+//-------------------------------------------------------------
 
 html,
 body {
     font-family: $font-family-sans-serif;
     font-weight: 300;
-    font-size: 16px;
 
     margin: 0;
     padding: 0;
+    height: 100%;
     width: 100%;
-    height:100%;
-    background-color: $body-bg-top;
-    color: #fff;
 }
 
 body {
     overflow-x: hidden;
+    position: relative;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+
+    margin: 0;
+    padding: 0;
 }
 
-em {
+em, i {
     font-style: italic;
 }
 
-.glyphicon {
-    vertical-align: -0.1em;
-}
-
 a {
-    color: $link_text;
-}
+    text-decoration: none;
 
-a:hover, a:focus {
-    color: $link_text;
-}
-
-.nowrap {
-    white-space: nowrap
-}
-
-.subtle {
-    color: $subtle_text;
+    &:hover, &:focus {
+        @include opacity(0.8);
+    }
 }
 
 .clear {
     clear: both;
 }
 
-#top-navbar, #jumbotron {
-    @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
-    width: 100%;
-}
 
-/****************************************
- * Modal
- ****************************************/
-
-.modal {
-
-    .modal-dialog {
-        margin: 70px auto;
-    }
-
-    .modal-content {
-
-        .modal-header {
-            border-top-left-radius: $border-radius-large;
-            border-top-right-radius: $border-radius-large;
-            border-bottom: 0px solid transparent;
-
-            .close {
-                font-size: 1.5em;
-
-                span {
-                    vertical-align: middle;
-                }
-            }
-
-            .modal-title {
-                color: #444;
-                font-size: 1.25em;
-                font-weight: normal;
-                font-variant: normal;
-            }
-        }
-
-        .modal-footer {
-            border-top: 0px solid transparent;
-        }
-    }
-}
-
-.modal.fade .modal-dialog {
-    @include transform(scale(0.8));
-    opacity: 0;
-    @include transition(all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55));
-}
-
-.modal.fade.in .modal-dialog {
-    @include transform(scale(1));
-    opacity: 1;
-}
-
-/****************************************
- * Header
- ****************************************/
-
-.navbar-brand {
-    position: relative;
-    padding: 9px 15px;
-}
-
-.navbar-nav > li > a {
-    font-size: 120%;
-    font-weight: bold;
-}
-
-#bracingeffect-logo, #bracingeffect-logo-dark {
-    width: 170px;
-    height: 32px;
-}
-
-#bracingeffect-logo-dark {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    margin-top: -16px;
-}
-
-.navbar-fixed-top {
-    background-color: rgba(0, 0, 0, 0);
-    border-bottom: 0;
-
-    .navbar-collapse {
-        border-top: 0 none transparent;
-    }
-
-    .navbar-toggle {
-        .icon-bar {
-            background-color: #fff;
-        }
-    }
-
-    .navbar-header a.navbar-brand, .navbar-nav > li {
-        a {
-            color: $text-color;
-            padding-left: 2em;
-            text-decoration: none;
-        }
-
-        a:hover, a:focus {
-            color: $text-color;
-            opacity: 0.5;
-        }
-    }
-
-    #bracingeffect-logo {
-        opacity: 1;
-    }
-
-    #bracingeffect-logo:hover {
-        opacity: 0.5;
-    }
-
-    #bracingeffect-logo-dark {
-        opacity: 0;
-    }
-
-    @include transition(all 0.3s ease 0s);
-}
-
-.navbar-fixed-top.opaque, .navbar-fixed-top.expanded {
-    background-color: rgba(0, 0, 64, 0.6);
-    @include box-shadow(0 0 32px rgba(0, 0, 0, 0.5));
-
-    @include transition(all 0.3s ease 0s);
-}
-
-/****************************************
- * Footer
- ****************************************/
-
-#footer {
-    padding: 54px 0 54px 0;
-
-    #website-copyright {
-        color: #fff;
-        text-decoration: none;
-        font-size: 12px;
-    }
-}
-
-/****************************************
- * iPhone section
- ****************************************/
-
-$badge_height: 40;
-$badge_width: 135;
-$badge_container_height: $badge_height;
-$badge_container_width: $badge_width;
-$iphone_height: 754;
-$iphone_width: 368;
-$iphone_bezel_height: 92;
-$iphone_bezel_width: 24;
-$content_percent: 50;
-
-#jumbotron {
-    background-color: $body-bg;
-    @include gradient-vertical($start-color: $body-bg-top, $end-color: $body-bg);
-
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-
-    position: relative;
-}
-
-#iphone-section {
-    border-top-right-radius: 1px; /* required for iOS zoom bug */
-    border-top-left-radius: 1px; /* required for iOS zoom bug */
-    padding-top: 100px;
-
-    .content {
-        position: relative;
-        z-index: 100;
-
-        .header {
-            white-space: nowrap;
-
-            .title {
-                color: #fff;
-                display: inline-block;
-                font-family: 'Luckiest Guy', $font-family-sans-serif;
-                font-variant: small-caps;
-
-                @include text-shadow(0.05em 0.05em 0 rgba(0, 0, 0, 0.3));
-            }
-        }
-
-        .text {
-            color: $normal_text;
-            font-size: 1.5em;
-            line-height: normal;
-            white-space: normal;
-
-            a, a:hover, a:focus {
-                text-decoration: underline;
-            }
-
-            .list-container {
-                ul {
-                    display: inline-block;
-                    text-align: left;
-                    margin: 0.5em 0 1.5em 0;
-
-                    li:before {
-                        content: '\2605';
-                        margin-right: 0.375em;
-                    }
-                }
-            }
-        }
-    }
-
-    #iphone {
-        position: relative;
-        display: block;
-        z-index: 101;
-
-        #iphone-screen {
-            position: absolute;
-            overflow: hidden;
-
-            background-color: #FC69B4;
-        }
-    }
-}
-
-
-/****************************************
- * Contact info
- ****************************************/
-
-#contact-modal {
-
-    .modal-body {
-        color: #000;
-        padding-top: 0.75em;
-
-        p {
-            margin-bottom: 1em;
-        }
-
-        a {
-            color: $bracing_blue;
-            text-decoration: none;
-        }
-
-        a:hover, a:focus {
-            border-bottom: 0.05em solid $dark_bracing_blue;
-            color: $dark_bracing_blue;
-        }
-    }
-}
-
-
-/****************************************
- * Background images
- ****************************************/
+//-------------------------------------------------------------
+// Background images
+//-------------------------------------------------------------
 
 .background-image {
     background-color: transparent;
     background-position: 50% 50%;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    color: transparent;
     display: inline-block;
-    line-height: 1em;
     vertical-align: middle;
+}
+
+.section-image {
+    background-color: transparent;
+    background-position: 50% 50%;
+    background-size: 100% auto;
+    @include background-size(cover);
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .spacer {
@@ -473,19 +223,295 @@ $content_percent: 50;
     }
 }
 
-.section-image {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-height: 100%;
-    min-width: 100%;
+
+//-------------------------------------------------------------
+// Sections
+//-------------------------------------------------------------
+
+.section {
+
+    hr {
+        display: block;
+        height: 1px;
+        margin: 50px auto;
+        padding: 0;
+        background-color: #a0a0a0;
+        @include gradient-horizontal-three-colors(#f5f5f5, #a0a0a0, 50%, #f5f5f5);
+        width: 50%;
+        position: relative;
+        border: none;
+    }
+
+    p {
+        margin: 0 0 25px;
+    }
 }
 
-#iphone{background-image:url(#{$images_path}iphone.png)}
-#appstore-badge{background-image:url(#{$images_path}appstore-badge.png)}
-#bracingeffect-logo{background-image:url(#{$images_path}bracingeffect-logo.png)}
-#iphone-screen{background-image:url(#{$images_path}screenshot01.png)}
+$sizes: ('xs', 'sm', 'md', 'lg');
+$media-sizes: (
+    xs: $screen-xs-min,
+    sm: $screen-sm-min,
+    md: $screen-md-min,
+    lg: $screen-lg-min
+);
+
+@each $size in $sizes {
+    .col-#{$size}-left {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: left;
+            & > * { text-align: right; }
+        }
+    }
+
+    .col-#{$size}-right {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: right;
+            & > * { text-align: left; }
+        }
+    }
+
+    .#{$size}-pull-right {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: right;
+        }
+    }
+
+    .#{$size}-pull-left {
+        @media (min-width: map-get($media-sizes, $size)) {
+            float: left;
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Navbar
+//-------------------------------------------------------------
+
+$be-logo-height: 34px;
+$be-logo-width: 179px;
+
+.navbar-default {
+    border-bottom: 0;
+
+    @include text-shadow(1px 1px 0 $text-shadow-color);
+
+    .navbar-toggle:hover, .navbar-toggle:focus {
+
+        .icon-bar {
+            background-color: $navbar-default-toggle-icon-bar-hover-bg;
+        }
+    }
+
+    .navbar-brand {
+        position: relative;
+        padding: (($navbar-height - $be-logo-height) / 2) 15px;
+
+        #be-logo {
+            width: $be-logo-width;
+            height: $be-logo-height;
+        }
+    }
+
+    .navbar-nav > li > a {
+        font-size: 1.1em;
+        font-style: normal;
+        font-weight: 400;
+        margin-left: 1em;
+    }
+
+    @include transition(all 0.3s ease 0s);
+}
+
+.navbar-default.opaque, .navbar-default.expanded {
+    background-color: $navbar-default-opaque-bg;
+    @include box-shadow(0 0 32px rgba(0, 0, 0, 0.8));
+}
+
+
+//-------------------------------------------------------------
+// Home
+//-------------------------------------------------------------
+
+#home {
+    padding: 100px 0;
+
+    h1 {
+        font-family: 'Luckiest Guy', $font-family-sans-serif;
+        font-size: 4.25em;
+        @include text-shadow(0.05em 0.05em 0 $text-shadow-color);
+
+        @media (min-width: $screen-xs-min) {
+            font-size: 5em;
+        }
+
+        @media (min-width: $screen-lg-min) {
+            font-size: 7em;
+        }
+
+        margin-top: 0;
+
+        @media (min-width: $screen-md-min) {
+            margin-top: #{$iphone_bezel_height}px;
+        }
+    }
+
+    .description {
+        font-size: 1.3em;
+        margin: 10px 0 25px;
+
+        @include text-shadow(1px 1px 0 $text-shadow-color);
+
+        a {
+            @include text-shadow(none);
+        }
+
+        p, ul {
+            margin: 0 0 15px;
+        }
+
+        ul {
+            display: inline-block;
+            list-style: none;
+
+            li {
+                text-align: left;
+            }
+
+            li:before {
+                content: '\2605';
+                margin-right: 0.5em;
+            }
+        }
+    }
+
+    .iphone {
+        position: relative;
+        z-index: 100;
+
+        height: auto;
+        width: 100%;
+
+        > .spacer {
+            padding-top: 204.8913%;
+        }
+
+        .iphone-screen {
+            position: absolute;
+            overflow: hidden;
+            z-index: 101;
+
+            cursor: pointer;
+
+            height: ($iphone_screen_height / $iphone_height) * 100%;
+            width: ($iphone_screen_width / $iphone_width) * 100%;
+
+            top: ($iphone_bezel_height / $iphone_height) * 100%;
+            left: ($iphone_bezel_width / $iphone_width) * 100%;
+
+            .demovideo {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: $screen-xs-min) {
+            height: #{$iphone_height}px;
+            width: #{$iphone_width}px;
+
+            .iphone-screen {
+                height: #{$iphone_screen_height}px;
+                width: #{$iphone_screen_width}px;
+
+                top: #{$iphone_bezel_height}px;
+                left: #{$iphone_bezel_width}px;
+
+                .demovideo {
+                    height: #{$iphone_screen_height}px;
+                    width: #{$iphone_screen_width}px;
+                }
+            }
+        }
+    }
+
+    .badge-container {
+        margin: 40px auto 0 auto;
+
+        @media (min-width: $screen-md-min) {
+            margin: -#{$iphone_bezel_height + $badge_height}px 0 #{$iphone_bezel_height + $badge_height}px 0;
+        }
+
+        .itunes-link, .appstore-badge {
+            display: inline-block;
+            width: #{$badge_width}px;
+            height: #{$badge_height}px;
+        }
+    }
+}
+
+
+//-------------------------------------------------------------
+// Contact
+//-------------------------------------------------------------
+
+#contact {
+    padding: 60px 0;
+
+    @include box-shadow(0 80px 40px -80px rgba(0, 0, 0, 0.5) inset);
+
+    background-color: #f5f5f5;
+
+    h1 {
+        margin: 0 0 50px;
+        color: #555;
+    }
+
+    a {
+        display: inline-block;
+        color: $bracing_blue;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+
+    .logo {
+        height: 40px;
+        width: 40px;
+        margin: 0 0 10px;
+    }
+}
+
+
+//-------------------------------------------------------------
+// Footer
+//-------------------------------------------------------------
+
+#footer {
+    background-color: #303030;
+    color: #909090;
+
+    padding: 20px 0;
+
+    font-size: 0.85em;
+
+    @media (min-width: $screen-xs-min) {
+        font-size: 1em;
+    }
+}
+
+
+//-------------------------------------------------------------
+// Retina images
+//-------------------------------------------------------------
+
+.iphone{background-image:url(#{$images_path}iphone.png)}
+.iphone-screen{background-image:url(#{$images_path}screenshot01.png)}
+.appstore-badge{background-image:url(#{$images_path}appstore-badge.png)}
+#be-logo{background-image:url(#{$images_path}bracingeffect-logo.png)}
+#email-logo{background-image:url(#{$images_path}email-logo.png)}
+#github-logo{background-image:url(#{$images_path}github-logo.png)}
+#twitter-logo{background-image:url(#{$images_path}twitter-logo.png)}
 
 @media
 only screen and (-webkit-min-device-pixel-ratio:2),
@@ -495,170 +521,11 @@ only screen and (-o-min-device-pixel-ratio:2/1),
 only screen and (min-device-pixel-ratio:2),
 only screen and (min-resolution:192dpi),
 only screen and (min-resolution:2dppx) {
-    #iphone{background-image:url(#{$images_path}iphone_2x.png)}
-    #appstore-badge{background-image:url(#{$images_path}appstore-badge_2x.png)}
-    #bracingeffect-logo{background-image:url(#{$images_path}bracingeffect-logo_2x.png)}
-    #iphone-screen{background-image:url(#{$images_path}screenshot01_2x.png)}
-}
-
-/****************************************
- * Responsive breakpoints
- ****************************************/
-
-.container {
-    // padding-left: 5px;
-    // padding-right: 5px;
-}
-
-#contact-modal {
-    .modal-body {
-        font-size: 2em;
-    }
-}
-
-#iphone-section {
-    font-size: 12px;
-
-    .content {
-        float: none;
-        text-align: center;
-        width: 100%;
-        padding-top: 0px;
-        padding-right: 0px;
-
-        .header {
-            .title   {
-                font-size: 8.5em;
-            }
-        }
-    }
-
-    #iphone {
-        margin: 2em auto 0 auto;
-        width: 100%;
-        height: auto;
-
-        > .spacer {
-            padding-top: 204.8913%;
-        }
-
-        #iphone-screen {
-            width: (320.0 / $iphone_width) * 100%;
-            height: (568.0 / $iphone_height) * 100%;
-
-            top: ($iphone_bezel_height / $iphone_height) * 100%;
-            left: ($iphone_bezel_width / $iphone_width) * 100%;
-
-            .demovideo {
-                cursor: pointer;
-            }
-
-            .demovideo, .screenshot {
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-
-    #badge-container {
-        margin: 54px auto 0 auto;
-
-        height: #{$badge_container_height}px;
-        width: #{$badge_container_width}px;
-
-        position: relative;
-
-        #jurbly-itunes-link {
-            display: inline-block;
-            float: right;
-            height: #{$badge_height}px;
-
-            #appstore-badge {
-                width: #{$badge_width}px;
-                height: #{$badge_height}px;
-            }
-        }
-    }
-}
-
-.modal-body {
-    padding: 15px 5px 15px 5px;
-}
-
-
-@media (min-width: 400px) {
-
-    #iphone-section {
-        font-size: 15px;
-    }
-
-    #iphone-section {
-
-        #iphone {
-            height: #{$iphone_height}px;
-            width: #{$iphone_width}px;
-
-            #iphone-screen {
-                width: 320px;
-                height: 568px;
-
-                top: #{$iphone_bezel_height}px;
-                left: #{$iphone_bezel_width}px;
-
-                .demovideo, .screenshot {
-                    width: 320px;
-                    height: 568px;
-                }
-            }
-        }
-    }
-}
-
-@media (min-width: $screen-sm-min) {
-
-    #contact-modal {
-        .modal-body {
-            font-size: 2.5em;
-        }
-    }
-}
-
-@media (min-width: $screen-md-min) {
-
-    #iphone-section {
-        font-size: 14px;
-    }
-
-    #iphone-section {
-
-        .content {
-            float: left;
-            text-align: right;
-            padding-top: #{$iphone_bezel_height}px;
-            padding-right: 5%;
-            width: ($content_percent) * 1%;
-
-            .text {
-                margin-top: 0;
-            }
-        }
-
-        #iphone {
-            margin: 0 0 0 ($content_percent) * 1%;
-        }
-
-        #badge-container {
-            $badge_margin: $iphone_bezel_height + $badge_container_height;
-
-            margin: -#{$badge_margin}px 0 #{$iphone_bezel_height}px 0;
-            width: 45%;
-        }
-    }
-}
-
-@media (min-width: $screen-lg-min) {
-
-    #iphone-section, #watch-section {
-        font-size: 16px;
-    }
+    .iphone{background-image:url(#{$images_path}iphone_2x.png)}
+    .iphone-screen{background-image:url(#{$images_path}screenshot01_2x.png)}
+    .appstore-badge{background-image:url(#{$images_path}appstore-badge_2x.png)}
+    #be-logo{background-image:url(#{$images_path}bracingeffect-logo_2x.png)}
+    #email-logo{background-image:url(#{$images_path}email-logo_2x.png)}
+    #github-logo{background-image:url(#{$images_path}github-logo_2x.png)}
+    #twitter-logo{background-image:url(#{$images_path}twitter-logo_2x.png)}
 }
